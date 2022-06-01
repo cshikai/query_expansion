@@ -1,0 +1,12 @@
+[submodule "ner"]
+	path = ner
+	url = https://github.com/cshikai/query_expansion_ner.git
+[submodule "neo4j"]
+	path = neo4j
+	url = https://github.com/cshikai/query_expansion_neo4j.git
+[submodule "gateway"]
+	path = gateway
+	url = https://github.com/cshikai/query_expansion_gateway.git
+[submodule "entity_linking"]
+	path = entity_linking
+	url = https://github.com/cshikai/query_expansion_entity_linking.git
