@@ -10,3 +10,6 @@
 [submodule "entity_linking"]
 	path = entity_linking
 	url = https://github.com/cshikai/query_expansion_entity_linking.git
+[submodule "graph_population"]
+	path = graph_population
+	url = https://github.com/cshikai/query_expansion_graph_population
