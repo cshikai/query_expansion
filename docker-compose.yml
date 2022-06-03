@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+  graph_population:
+    # runtime: nvidia
+    build: graph_population
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./graph_population/src:/src
+      - ./graph_population/data:/data
+    ulimits:
+      memlock: -1 # set upper limit for how much memory is locked for the container (-1 means lock as much as the container uses)
+    shm_size: 32gb # set upper limit for how much shared memory container can use
+  neo4j:
+   build: neo4j
+ 
+   environment:
+    - NEO4JLABS_PLUGINS=${NEO4JLABS_PLUGINS}
+    - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
+   ports:
+    - 7687:7687
+    - 7474:7474
+   ulimits:
+    memlock: -1 # set upper limit for how much memory is locked for the container (-1 means lock as much as the container uses)
+   shm_size: 32gb # set upper limit for how much shared memory container can use
+
+  gateway:
+    # runtime: nvidia
+    build: gateway
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./gateway/src:/src
+    ports:
+      - 8888:8888
+    ulimits:
+      memlock: -1 # set upper limit for how much memory is locked for the container (-1 means lock as much as the container uses)
+    shm_size: 32gb # set upper limit for how much shared memory container can use
